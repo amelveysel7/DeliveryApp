@@ -5,55 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".LoginActivity">
+    tools:context=".login.LoginActivity">
 
-    <RelativeLayout
-        android:id="@+id/login_form_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true">
-
-        <EditText
-            android:id="@+id/email_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="15"
-            android:hint="@string/mail_hint"
-            android:inputType="textEmailAddress"
-            android:backgroundTint="@color/colorAccent"/>
-
-        <EditText
-            android:id="@+id/password_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:layout_below="@+id/email_et"
-            android:ems="15"
-            android:hint="@string/password_hint"
-            android:inputType="textPassword"
-            android:backgroundTint="@color/colorAccent"/>
-        <Button
-            android:id="@+id/login_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/password_et"
-            android:layout_marginTop="128dp"
-            android:text="@string/login_text"
-            android:background="@drawable/button_style"/>
-    </RelativeLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:text="@string/register_text"
-
-        />
+   <LinearLayout
+       android:id="@+id/fragment_container"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       ></LinearLayout>
 
 
 

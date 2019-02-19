@@ -1,7 +1,8 @@
-package com.deliveryapp;
+package com.deliveryapp.login;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.content.Context;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -10,34 +11,54 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+import com.deliveryapp.FragmentNavigation;
+import com.deliveryapp.R;
+
+public class LoginFragment extends Fragment {
 
     private EditText mail;
     private EditText password;
     private Button login;
-
+    private TextView register;
+    private FragmentNavigation fragmentNavigation;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        mail = findViewById(R.id.email_et);
-        password = findViewById(R.id.password_et);
-        login = findViewById(R.id.login_btn);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        fragmentNavigation = (FragmentNavigation)context;
+    }
+
+    @Nullable
+    @Override
+    public View getView() {
+        View view = getLayoutInflater().inflate(R.layout.login_fragment, null);
+
+        mail = view.findViewById(R.id.email_et);
+        password = view.findViewById(R.id.password_et);
+        login = view.findViewById(R.id.login_btn);
+        register = view.findViewById(R.id.register_tv);
         configureEditTexts();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(checkMandatoryEditTexts()){
                     //TODO: Login User
-                    Toast.makeText(LoginActivity.this, "Login okay", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Login okay", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     //TODO: Show Error
-                    Toast.makeText(LoginActivity.this, "Login error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Login error", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragmentNavigation.addFragment(new RegisterFragment());
+            }
+        });
+
+        return view;
     }
 
     private void configureEditTexts(){
