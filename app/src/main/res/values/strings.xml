@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Delivery App</string>
+    <string name="login_text">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="mail_hint">Mail</string>
+    <string name="register_text"><u>Not a usser? Register!</u></string>
 </resources>
