@@ -11,8 +11,6 @@ public class RegisterFragment extends Fragment {
     @Override
     public View getView() {
         View view = getLayoutInflater().inflate(R.layout.register_fragment, null);
-
-
         return view;
     }
 }
