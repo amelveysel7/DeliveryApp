@@ -43,7 +43,9 @@
             android:layout_below="@+id/password_et"
             android:layout_marginTop="128dp"
             android:text="@string/login_text"
-            android:background="@drawable/button_style"/>
+            android:background="@drawable/button_style"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
     </RelativeLayout>
     <TextView
         android:id="@+id/register_tv"
