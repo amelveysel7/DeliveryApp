@@ -76,8 +76,13 @@ public class RegisterFragment extends Fragment {
         });
         return view;
     }
-    private boolean checkMandatoryEditTexts(){
-        if(lname.getText().toString().isEmpty() || fname.getText().toString().isEmpty() || mail.getText().toString().isEmpty() || password.getText().toString().isEmpty() || confirmPassword.getText().toString().isEmpty()){
+
+    private boolean checkMandatoryEditTexts() {
+        if (lname.getText().toString().isEmpty()
+                || fname.getText().toString().isEmpty()
+                || mail.getText().toString().isEmpty()
+                || password.getText().toString().isEmpty()
+                || confirmPassword.getText().toString().isEmpty()) {
             return false;
         }
         return true;
