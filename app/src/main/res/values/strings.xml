@@ -4,4 +4,13 @@
     <string name="password_hint">Password</string>
     <string name="mail_hint">Mail</string>
     <string name="register_text"><u>Not a usser? Register!</u></string>
+    <string name="register_name">First Name</string>
+    <string name="register_lname">Last Name</string>
+    <string name="confirm_password_hint">Confirm password</string>
+    <string name="supplier_text">Supplier</string>
+    <string name="user_text">User</string>
+    <string name="register_btn_text">REGISTER</string>
+    <string name="have_account_log_in"><u>Have account? Log in!</u>></string>
+    <string name="pas_error">The passwords are not matching</string>
+    <string name="fields_required">All inputs fields are required</string>
 </resources>
