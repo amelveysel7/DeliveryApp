@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff"
-    tools:context=".login.LoginActivity">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/login_form_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:paddingBottom="8dp"
+        android:clipToPadding="false">
 
         <EditText
             android:id="@+id/email_et"
@@ -22,6 +20,7 @@
             android:ems="15"
             android:hint="@string/mail_hint"
             android:inputType="textEmailAddress"
+            android:fontFamily="sans-serif-condensed"
             android:backgroundTint="@color/colorAccent"/>
 
         <EditText
@@ -34,6 +33,7 @@
             android:ems="15"
             android:hint="@string/password_hint"
             android:inputType="textPassword"
+            android:fontFamily="sans-serif-condensed"
             android:backgroundTint="@color/colorAccent"/>
         <Button
             android:id="@+id/login_btn"
@@ -42,11 +42,13 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/password_et"
             android:layout_marginTop="128dp"
+            android:fontFamily="sans-serif-condensed"
             android:text="@string/login_text"
             android:background="@drawable/button_style"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"/>
     </RelativeLayout>
+
     <TextView
         android:id="@+id/register_tv"
         android:layout_width="wrap_content"
@@ -54,10 +56,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:text="@string/register_text"
-
-        />
-
-
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/register_text"/>
 
 </RelativeLayout>
