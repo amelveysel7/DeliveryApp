@@ -1,14 +1,16 @@
 package com.deliveryapp.login;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.deliveryapp.FragmentNavigation;
 import com.deliveryapp.R;
@@ -20,8 +22,6 @@ public class RegisterFragment extends Fragment {
     private EditText mail;
     private EditText password;
     private EditText confirmPassword;
-    private CheckBox supplier;
-    private CheckBox user;
     private Button register;
     private TextView error;
     private TextView login;
@@ -35,7 +35,8 @@ public class RegisterFragment extends Fragment {
 
     @Nullable
     @Override
-    public View getView() {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+      @Nullable Bundle savedInstanceState) {
         View view = getLayoutInflater().inflate(R.layout.register_fragment, null);
 
         fname = view.findViewById(R.id.name_et);
@@ -43,8 +44,8 @@ public class RegisterFragment extends Fragment {
         mail = view.findViewById(R.id.mail_et_register);
         password = view.findViewById(R.id.password_et_register);
         confirmPassword = view.findViewById(R.id.conf_password_et_register);
-        supplier = view.findViewById(R.id.checkbox_supplier);
-        user = view.findViewById(R.id.checkbox_user);
+        //        supplier = view.findViewById(R.id.checkbox_supplier);
+        //        user = view.findViewById(R.id.checkbox_user);
         register = view.findViewById(R.id.register_btn);
         error = view.findViewById(R.id.error_tv);
         login = view.findViewById(R.id.login_tv);
@@ -58,8 +59,8 @@ public class RegisterFragment extends Fragment {
                         //TODO: Register user
                     }
                     else{
-                       error.setText(getString(R.string.pas_error));
-                       error.setVisibility(View.VISIBLE);
+                        error.setText(getString(R.string.pas_error));
+                        error.setVisibility(View.VISIBLE);
                     }
                 }
                 else{
@@ -77,15 +78,13 @@ public class RegisterFragment extends Fragment {
         return view;
     }
 
+
     private boolean checkMandatoryEditTexts() {
-        if (lname.getText().toString().isEmpty()
-                || fname.getText().toString().isEmpty()
-                || mail.getText().toString().isEmpty()
-                || password.getText().toString().isEmpty()
-                || confirmPassword.getText().toString().isEmpty()) {
-            return false;
-        }
-        return true;
+        return !(lname.getText().toString().isEmpty()
+          || fname.getText().toString().isEmpty()
+          || mail.getText().toString().isEmpty()
+          || password.getText().toString().isEmpty()
+          || confirmPassword.getText().toString().isEmpty());
 
     }
 }

@@ -1,10 +1,14 @@
 package com.deliveryapp.login;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +34,8 @@ public class LoginFragment extends Fragment {
 
     @Nullable
     @Override
-    public View getView() {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+      @Nullable Bundle savedInstanceState) {
         View view = getLayoutInflater().inflate(R.layout.login_fragment, null);
 
         mail = view.findViewById(R.id.email_et);
@@ -77,9 +82,6 @@ public class LoginFragment extends Fragment {
     }
 
     private boolean checkMandatoryEditTexts(){
-        if(mail.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
-            return false;
-        }
-        return true;
+        return !(mail.getText().toString().isEmpty() || password.getText().toString().isEmpty());
     }
 }

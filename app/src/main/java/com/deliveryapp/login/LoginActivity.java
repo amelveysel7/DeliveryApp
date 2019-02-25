@@ -15,12 +15,11 @@ public class LoginActivity extends AppCompatActivity implements FragmentNavigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         addFragment(new LoginFragment());
-
     }
 
     @Override
     public void addFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container,fragment);
+        fragmentTransaction.replace(R.id.fragment_container,fragment).commit();
     }
 }
