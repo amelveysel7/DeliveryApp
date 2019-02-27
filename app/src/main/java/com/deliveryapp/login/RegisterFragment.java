@@ -62,7 +62,7 @@ public class RegisterFragment extends Fragment {
                         authenticationService.register(mail.getText().toString(), password.getText().toString(), new AuthenticationListener<Void>() {
                             @Override
                             public void onSuccess(Void result) {
-                                //TODO: Back to LOGIN Fragment
+                                fragmentNavigation.addFragment(new LoginFragment());
                             }
 
                             @Override
