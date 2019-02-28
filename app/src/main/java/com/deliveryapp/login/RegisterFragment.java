@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.deliveryapp.FragmentNavigation;
 import com.deliveryapp.R;
+import com.deliveryapp.login.services.AuthenticationListener;
+import com.deliveryapp.login.services.AuthenticationService;
 
 public class RegisterFragment extends Fragment {
 
@@ -26,6 +28,7 @@ public class RegisterFragment extends Fragment {
     private TextView error;
     private TextView login;
     private FragmentNavigation fragmentNavigation;
+    private AuthenticationService authenticationService = AuthenticationService.getInstance();
 
     @Override
     public void onAttach(Context context) {
@@ -56,7 +59,18 @@ public class RegisterFragment extends Fragment {
                 error.setVisibility(View.INVISIBLE);
                 if(checkMandatoryEditTexts()){
                     if(password.getText().toString().equals(confirmPassword.getText().toString())){
-                        //TODO: Register user
+                        authenticationService.register(mail.getText().toString(), password.getText().toString(), new AuthenticationListener<Void>() {
+                            @Override
+                            public void onSuccess(Void result) {
+                                fragmentNavigation.addFragment(new LoginFragment());
+                            }
+
+                            @Override
+                            public void onFailure(String message) {
+                                error.setText(message);
+                                error.setVisibility(View.VISIBLE);
+                            }
+                        });
                     }
                     else{
                         error.setText(getString(R.string.pas_error));

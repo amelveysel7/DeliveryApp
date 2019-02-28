@@ -35,13 +35,25 @@
             android:inputType="textPassword"
             android:fontFamily="sans-serif-condensed"
             android:backgroundTint="@color/colorAccent"/>
+        <TextView
+            android:id="@+id/login_afq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/fields_required"
+            android:textColor="#e83030"
+            android:layout_below="@+id/password_et"
+            android:layout_marginTop="128dp"
+            android:textSize="16dp"
+            android:visibility="invisible"/>
         <Button
             android:id="@+id/login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/password_et"
-            android:layout_marginTop="128dp"
+            android:layout_below="@id/login_afq"
+            android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/login_text"
             android:background="@drawable/button_style"

@@ -17,6 +17,10 @@ import android.widget.Toast;
 
 import com.deliveryapp.FragmentNavigation;
 import com.deliveryapp.R;
+import com.deliveryapp.login.services.AuthenticationListener;
+import com.deliveryapp.login.services.AuthenticationService;
+
+import org.w3c.dom.Text;
 
 public class LoginFragment extends Fragment {
 
@@ -24,7 +28,9 @@ public class LoginFragment extends Fragment {
     private EditText password;
     private Button login;
     private TextView register;
+    private TextView msg;
     private FragmentNavigation fragmentNavigation;
+    private AuthenticationService authenticationService = AuthenticationService.getInstance();
 
     @Override
     public void onAttach(Context context) {
@@ -42,17 +48,33 @@ public class LoginFragment extends Fragment {
         password = view.findViewById(R.id.password_et);
         login = view.findViewById(R.id.login_btn);
         register = view.findViewById(R.id.register_tv);
+        msg = view.findViewById(R.id.login_afq);
         configureEditTexts();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(checkMandatoryEditTexts()){
-                    //TODO: Login User
-                    Toast.makeText(getContext(), "Login okay", Toast.LENGTH_SHORT).show();
+                    authenticationService.login(mail.getText().toString(), password.getText().toString(), new AuthenticationListener() {
+                        @Override
+                        public void onSuccess(Object result) {
+                            //TODO:
+                            Toast.makeText(getContext(), "Login okay", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onFailure(String message) {
+                            msg.setText(message);
+                            msg.setVisibility(View.VISIBLE);
+
+                        }
+                    });
+
+
                 }
                 else{
                     //TODO: Show Error
-                    Toast.makeText(getContext(), "Login error", Toast.LENGTH_SHORT).show();
+                    msg.setText(getString(R.string.fields_required));
+                    msg.setVisibility(View.VISIBLE);
                 }
             }
         });
